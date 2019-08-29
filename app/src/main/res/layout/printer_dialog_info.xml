@@ -1,0 +1,44 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_margin="1dip"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:background="@drawable/printer_dialog_bg">
+
+        <TextView
+            android:id="@+id/printer_dialog_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="center"
+            android:text="出票中,请取票..."
+            android:textColor="@color/colorBlack"
+            android:textSize="22sp" />
+
+        <TextView
+            android:id="@+id/printer_dialog_update_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:paddingBottom="20dp"
+            android:paddingRight="40dp"
+            android:paddingLeft="@dimen/dimen_40"
+            android:paddingTop="@dimen/dimen_20"
+            android:visibility="gone"
+            android:gravity="center"
+            android:text="重试"
+            android:textColor="@color/color_14BE75"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="160dp" />
+</LinearLayout>

@@ -1,0 +1,169 @@
+<!--
+  Copyright 2011 The Android Open Source Project
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<resources>
+
+    <declare-styleable name="BaseBanner">
+        <attr name="bb_scale" />
+        <attr name="bb_isLoopEnable" />
+        <attr name="bb_delay" />
+        <attr name="bb_period" />
+        <attr name="bb_isAutoScrollEnable" />
+        <attr name="bb_barColor" />
+        <attr name="bb_isBarShowWhenLast" />
+        <attr name="bb_barPaddingLeft" />
+        <attr name="bb_barPaddingTop" />
+        <attr name="bb_barPaddingRight" />
+        <attr name="bb_barPaddingBottom" />
+        <attr name="bb_textColor" />
+        <attr name="bb_textSize" />
+        <attr name="bb_isTitleShow" />
+        <attr name="bb_isIndicatorShow" />
+        <attr name="bb_indicatorGravity" />
+    </declare-styleable>
+
+    <declare-styleable name="PullToRefresh">
+
+        <!-- A drawable to use as the background of the Refreshable View -->
+        <attr name="ptrRefreshableViewBackground" format="reference|color" />
+
+        <!-- A drawable to use as the background of the Header and Footer Loading Views -->
+        <attr name="ptrHeaderBackground" format="reference|color" />
+
+        <!-- Text Color of the Header and Footer Loading Views -->
+        <attr name="ptrHeaderTextColor" format="reference|color" />
+
+        <!-- Text Color of the Header and Footer Loading Views Sub Header -->
+        <attr name="ptrHeaderSubTextColor" format="reference|color" />
+
+        <!-- Mode of Pull-to-Refresh that should be used -->
+        <attr name="ptrMode">
+            <flag name="disabled" value="0x0" />
+            <flag name="pullFromStart" value="0x1" />
+            <flag name="pullFromEnd" value="0x2" />
+            <flag name="both" value="0x3" />
+            <flag name="manualOnly" value="0x4" />
+
+            <!-- These last two are depreacted -->
+            <flag name="pullDownFromTop" value="0x1" />
+            <flag name="pullUpFromBottom" value="0x2" />
+        </attr>
+
+        <!-- Whether the Indicator overlay(s) should be used -->
+        <attr name="ptrShowIndicator" format="reference|boolean" />
+
+        <!-- Drawable to use as Loading Indicator. Changes both Header and Footer. -->
+        <attr name="ptrDrawable" format="reference" />
+
+        <!-- Drawable to use as Loading Indicator in the Header View. Overrides value set in ptrDrawable. -->
+        <attr name="ptrDrawableStart" format="reference" />
+
+        <!-- Drawable to use as Loading Indicator in the Footer View. Overrides value set in ptrDrawable. -->
+        <attr name="ptrDrawableEnd" format="reference" />
+
+        <!-- Whether Android's built-in Over Scroll should be utilised for Pull-to-Refresh. -->
+        <attr name="ptrOverScroll" format="reference|boolean" />
+
+        <!-- Base text color, typeface, size, and style for Header and Footer Loading Views -->
+        <attr name="ptrHeaderTextAppearance" format="reference" />
+
+        <!-- Base text color, typeface, size, and style for Header and Footer Loading Views Sub Header -->
+        <attr name="ptrSubHeaderTextAppearance" format="reference" />
+
+        <!-- Style of Animation should be used displayed when pulling. -->
+        <attr name="ptrAnimationStyle">
+            <flag name="rotate" value="0x0" />
+            <flag name="flip" value="0x1" />
+        </attr>
+
+        <!-- Whether the user can scroll while the View is Refreshing -->
+        <attr name="ptrScrollingWhileRefreshingEnabled" format="reference|boolean" />
+
+        <!--
+        	Whether PullToRefreshListView has it's extras enabled. This allows the user to be 
+        	able to scroll while refreshing, and behaves better. It acheives this by adding
+        	Header and/or Footer Views to the ListView.
+        -->
+        <attr name="ptrListViewExtrasEnabled" format="reference|boolean" />
+
+        <!--
+        	Whether the Drawable should be continually rotated as you pull. This only
+        	takes effect when using the 'Rotate' Animation Style.
+        -->
+        <attr name="ptrRotateDrawableWhilePulling" format="reference|boolean" />
+
+        <!-- BELOW HERE ARE DEPRECEATED. DO NOT USE. -->
+        <attr name="ptrAdapterViewBackground" format="reference|color" />
+        <attr name="ptrDrawableTop" format="reference" />
+        <attr name="ptrDrawableBottom" format="reference" />
+    </declare-styleable>
+
+    <!-- MaxHeightView -->
+    <declare-styleable name="MaxHeightView">
+        <attr name="mhv_HeightRatio" format="reference|float" />
+        <attr name="mhv_HeightDimen" format="reference|dimension" />
+    </declare-styleable>
+
+    <!-- Glide -->
+    <declare-styleable name="MyGlide">
+        <attr name="placeholder" format="reference" /><!-- 占位符 -->
+        <attr name="error" format="reference" /><!-- 错误占位符 -->
+        <attr name="circle" format="boolean" /><!-- 是不是圆圈 -->
+        <attr name="round" format="dimension" /><!-- 圆角角度 -->
+        <!-- 只作为Bitmap -->
+        <!--<attr name="asBitmap" format="boolean" />-->
+        <!-- 只作为gif -->
+        <!--<attr name="asGif" format="boolean" />-->
+        <!-- <attr name="styleMode">&lt;!&ndash; 加载模式 &ndash;&gt;
+             <enum name="centerCrop" value="0" />
+             <enum name="fitCenter" value="1" />
+         </attr>-->
+    </declare-styleable>
+
+    <declare-styleable name="BaseIndicatorBanner">
+        <attr name="bb_indicatorStyle" />
+        <attr name="bb_indicatorWidth" />
+        <attr name="bb_indicatorHeight" />
+        <attr name="bb_indicatorGap" />
+        <attr name="bb_indicatorSelectColor" />
+        <attr name="bb_indicatorUnselectColor" />
+        <attr name="bb_indicatorCornerRadius" />
+
+        <attr name="bb_indicatorUnSelectCornerRadius" />
+        <attr name="bb_indicatorUnSelectHeight" />
+        <attr name="bb_indicatorUnSelectWidth" />
+
+        <attr name="bb_indicatorSelectRes" />
+        <attr name="bb_indicatorUnselectRes" />
+    </declare-styleable>
+
+    <!--网格控件-->
+    <declare-styleable name="question_layoutId">
+        <attr name="spacing" format="integer" />
+        <attr name="spanCount" format="integer" />
+        <!--1为垂直,0为水平-->
+        <attr name="orient" format="integer" />
+        <attr name="layoutId" format="reference" />
+        <attr name="includeEdge" format="boolean" /><!-- 是否包括边界 -->
+        <attr name="canScrollVertically" format="boolean" /><!-- 是否允许垂直滚动 -->
+    </declare-styleable>
+
+
+    <declare-styleable name="ConvenientBanner">
+        <attr name="canLoop" format="boolean" />
+        <attr name="autoTurningTime" format="integer" />
+    </declare-styleable>
+</resources>

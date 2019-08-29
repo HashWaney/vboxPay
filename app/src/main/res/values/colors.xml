@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorBlack">#000000</color>
+
+    <color name="color_333333">#333333</color>
+    <color name="color_363636">#363636</color>
+    <color name="color_666666">#666666</color>
+    <color name="color_999999">#999999</color>
+    <color name="color_d3d3d3">#D3D3D3</color>
+    <color name="color_e6e6e6">#E6E6E6</color>
+    <color name="color_ff8250">#FF8250</color>
+    <color name="color_ff8866">#FF8866</color>
+    <color name="color_3ac7fd">#3AC9FD</color>
+    <color name="color_ff5264">#FF5264</color>
+    <color name="color_4ab848">#4ab848</color>
+    <color name="color_e10112">#E10112</color>
+    <color name="color_ebebeb">#EBEBEB</color>
+    <color name="color_888888">#888888</color>
+    <color name="color_f5f9fc">#F5F9FC</color>
+    <color name="color_6b6b6b">#6B6B6B</color>
+    <color name="color_00000000">#00000000</color>
+    <color name="color_FEA68B">#FEA68B</color>
+    <color name="color_B1B1B1">#B1B1B1</color>
+    <color name="line_color">#bfbfbf</color>  //分割线颜色
+    <color name="color_14BE75">#14BE75</color>
+    <color name="small_black">#888888</color>
+    <color name="kprogresshud_default_color">#b1000000</color>
+    <color name="kprogresshud_grey_color">#449E9E9E</color>
+</resources>
