@@ -17,56 +17,26 @@ public class GoodsInfo implements MultiItemEntity, Serializable {
     public static final int NORMAL = 0;//方便后期扩展
 
     public static final int BANNER = 1;//banner
-
-
     private int itemType;
-    private String goodsPic;
-    private String goodsPrice;
+
+    private ArrayList<GoodsDetailModel> mGoodsDetailList;
+
     private ArrayList<Object> mBannerInfoData;
 
-    @Override
-    public String toString() {
-        return "GoodsInfo{" +
-                "itemType=" + itemType +
-                ", goodsPic='" + goodsPic + '\'' +
-                ", goodsPrice='" + goodsPrice + '\'' +
-                ", goodsName='" + goodsName + '\'' +
-                '}';
+    public ArrayList<GoodsDetailModel> getGoodsDetailList() {
+        return mGoodsDetailList;
     }
 
-    private String goodsName;
-
-    public void setItemType(int itemType) {
-        this.itemType = itemType;
-    }
-
-    public String getGoodsPic() {
-        return goodsPic;
-    }
-
-    public void setGoodsPic(String goodsPic) {
-        this.goodsPic = goodsPic;
-    }
-
-    public String getGoodsPrice() {
-        return goodsPrice;
-    }
-
-    public void setGoodsPrice(String goodsPrice) {
-        this.goodsPrice = goodsPrice;
-    }
-
-    public String getGoodsName() {
-        return goodsName;
-    }
-
-    public void setGoodsName(String goodsName) {
-        this.goodsName = goodsName;
+    public void setGoodsDetailList(ArrayList<GoodsDetailModel> mGoodsDetailList) {
+        this.mGoodsDetailList = mGoodsDetailList;
     }
 
     public GoodsInfo() {
     }
 
+    public void setItemType(int itemType) {
+        this.itemType = itemType;
+    }
 
     @Override
     public int getItemType() {
@@ -83,16 +53,4 @@ public class GoodsInfo implements MultiItemEntity, Serializable {
     }
 
 
-    public class GoodsBannerInfo {
-        private String jumpUrl;
-        private String picPath;
-
-        public String getJumpUrl() {
-            return jumpUrl;
-        }
-
-        public void setJumpUrl(String jumpUrl) {
-            this.jumpUrl = jumpUrl;
-        }
-    }
 }

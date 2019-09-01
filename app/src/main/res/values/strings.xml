@@ -2,4 +2,5 @@
     <string name="app_name">智慧云掌柜</string>
     <string name="unit_name">北京昱达天丽科技发展有限公司</string>
     <string name="icbc_name">使用工商银行APP扫码赠送抽纸一包</string>
+    <string name="shipment_fail_tips">立即为您原路自动退款\n  一般10分钟内到账</string>
 </resources>

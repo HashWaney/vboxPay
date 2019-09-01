@@ -27,7 +27,7 @@
         android:layout_marginTop="20dp"
         android:singleLine="true"
         android:textColor="#515151"
-        android:textSize="13sp"
+        android:textSize="16.5sp"
         android:textStyle="bold" />
 
     <TextView
@@ -37,7 +37,7 @@
         android:layout_gravity="center"
         android:text="￥3.50"
         android:textColor="#EF5448"
-        android:textSize="14sp"
+        android:textSize="18sp"
         android:textStyle="bold" />
 
 

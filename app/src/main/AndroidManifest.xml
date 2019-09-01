@@ -9,10 +9,10 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
-    //读取 wifi
-    <uses-permission android:name="android.permission.ACCESSWIFISTATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!--//读取 wifi-->
+    <uses-permission android:name="android.permission.ACCESSWIFISTATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
@@ -36,15 +36,24 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activity.ubox.MainActivity2"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".activity.InstallPackageActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".activity.AdvertActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".activity.ubox.UBoxSetUpVmIdActivity"
-            android:screenOrientation="portrait"
-            />
+        <activity
+            android:name=".activity.ubox.MainActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.InstallPackageActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.AdvertActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ubox.UBoxSetUpVmIdActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.ubox.ProductPayActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.ubox.ProductShipmentStatusAct"
+            android:screenOrientation="landscape" />
 
         <receiver
             android:name=".receiver.BootBroadcastReceiver"
@@ -54,6 +63,7 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED"></action>
             </intent-filter>
         </receiver>
+
     </application>
 
 </manifest>

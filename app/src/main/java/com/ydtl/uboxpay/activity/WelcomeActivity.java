@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
 import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,7 +22,7 @@ import com.lzy.okgo.model.Response;
 import com.ydtl.uboxpay.R;
 import com.ydtl.uboxpay.activity.base.BaseActivity;
 import com.ydtl.uboxpay.activity.base.MainApplication;
-import com.ydtl.uboxpay.activity.ubox.MainActivity2;
+import com.ydtl.uboxpay.activity.ubox.MainActivity;
 import com.ydtl.uboxpay.activity.ubox.UBoxSetUpVmIdActivity;
 import com.ydtl.uboxpay.bean.ShopBean;
 import com.ydtl.uboxpay.bean.ShopSortBean;
@@ -284,11 +283,11 @@ public class WelcomeActivity extends BaseActivity {
 
     private void startMainActivity() {
         if (isDown && isInit) {
-            boolean isSetUp = AndroidUtil.getConfigValue(this, Constant.SETUP_VM_ID, false);
+            boolean isSetUp = AndroidUtil.getConfigValue(this, Constant.IS_SET_UP_VM_ID, false);
             if (isSetUp) {
                 Intent intent = new Intent();
                 Bundle bundle = new Bundle();
-                intent.setClass(this, MainActivity2.class);
+                intent.setClass(this, MainActivity.class);
                 bundle.putSerializable("shopBean", (Serializable) shopBeans);
                 intent.putExtras(bundle);
                 startActivity(intent);

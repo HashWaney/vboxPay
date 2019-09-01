@@ -32,7 +32,7 @@
         <attr name="bb_textSize" />
         <attr name="bb_isTitleShow" />
         <attr name="bb_isIndicatorShow" />
-        <attr name="bb_indicatorGravity" />
+        <attr name="bb_indicatorGravity" format="string"/>
     </declare-styleable>
 
     <declare-styleable name="PullToRefresh">

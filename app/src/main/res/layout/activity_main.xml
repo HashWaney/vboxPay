@@ -1,20 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/shape_setup_vm_id_bg">
+    android:background="@drawable/product_list_bg"
+    android:orientation="vertical">
 
-    <com.hash.lib.ui.pulltorefresh.SuperSwipyRefreshLayout2
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:id="@+id/refreshView"
-        android:layout_height="match_parent">
+        android:layout_height="21dp"
+        android:background="@drawable/status_bar_bg">
 
-        <com.hash.lib.ui.recyclerview.BaseRecyclerView
-            android:layout_width="match_parent"
-            android:id="@+id/baseRecycleView"
-            android:layout_height="match_parent"/>
+        <TextView
+            android:id="@+id/tvVmId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="41dp"
+            android:textSize="15sp" />
 
-    </com.hash.lib.ui.pulltorefresh.SuperSwipyRefreshLayout2>
+
+    </RelativeLayout>
 
 
-</RelativeLayout>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/baseRecycleView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="26.5dp"
+        android:layout_marginRight="26.5dp"
+        android:layout_marginTop="63dp" />
+
+
+</LinearLayout>

@@ -7,7 +7,6 @@ import java.io.Serializable;
  */
 
 public class GoodsBannerInfo implements Serializable {
-    private static final long serialVersionUID = -1237605666312727740L;
 
     private String jumpUrl; //广告链接
     private String picPath;//图片链接
