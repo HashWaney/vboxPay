@@ -5,31 +5,28 @@
     android:background="@drawable/product_list_bg"
     android:orientation="vertical">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="21dp"
-        android:background="@drawable/status_bar_bg">
+    <include layout="@layout/layout_status_bar" />
 
-        <TextView
-            android:id="@+id/tvVmId"
-            android:layout_width="wrap_content"
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/baseRecycleView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="26.5dp"
+            android:layout_marginRight="26.5dp"
+            android:layout_marginTop="63dp" />
+
+        <ProgressBar
+            android:id="@+id/loadView"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="41dp"
-            android:textSize="15sp" />
+            android:layout_gravity="center" />
 
 
-    </RelativeLayout>
-
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/baseRecycleView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="26.5dp"
-        android:layout_marginRight="26.5dp"
-        android:layout_marginTop="63dp" />
+    </FrameLayout>
 
 
 </LinearLayout>

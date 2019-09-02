@@ -5,23 +5,8 @@
     android:background="@drawable/product_pay_bg"
     android:orientation="vertical">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="21dp"
-        android:layout_alignParentTop="true"
-        android:background="@drawable/status_bar_bg">
 
-        <TextView
-            android:id="@+id/tvVmId"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="41dp"
-            android:textSize="15sp" />
-
-
-    </RelativeLayout>
+    <include layout="@layout/layout_status_bar" />
 
 
     <LinearLayout
@@ -112,11 +97,12 @@
             android:src="@drawable/product_shipment" />
 
         <TextView
+            android:id="@+id/shipmentTips"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="17.5dp"
-            android:text="出货中"
             android:textColor="#3E3A39"
+            android:text="出货中"
             android:textSize="15sp" />
     </LinearLayout>
 </RelativeLayout>

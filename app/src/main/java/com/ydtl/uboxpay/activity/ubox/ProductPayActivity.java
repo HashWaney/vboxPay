@@ -1,6 +1,7 @@
 package com.ydtl.uboxpay.activity.ubox;
 
 import android.content.Intent;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -10,6 +11,7 @@ import com.ydtl.uboxpay.activity.base.BaseActivity;
 import com.ydtl.uboxpay.bean.ProductInfo;
 import com.ydtl.uboxpay.component.Constant;
 import com.ydtl.uboxpay.tool.AndroidUtil;
+import com.ydtl.uboxpay.tool.NetworkSignal;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -31,7 +33,8 @@ public class ProductPayActivity extends BaseActivity {
     ImageView ivProductPic;
     @BindView(R.id.tvVmId)
     TextView tvVmId;
-
+    @BindView(R.id.ivNetStatus)
+    ImageView ivNetStatus;
     private ProductInfo productInfo;
 
     @Override
@@ -58,5 +61,22 @@ public class ProductPayActivity extends BaseActivity {
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        int mobileSignal = NetworkSignal.getInstance().getMobileSignal();
+        ivNetStatus.setVisibility(View.VISIBLE);
+        if (mobileSignal == 0) {
+            ivNetStatus.setImageResource(R.drawable.net_status_fail);
+        } else if (mobileSignal == 1) {
+            ivNetStatus.setImageResource(R.drawable.net_status_weak);
+        } else if (mobileSignal == 2) {
+            ivNetStatus.setImageResource(R.drawable.net_status_normal);
+        } else if (mobileSignal == 3) {
+            ivNetStatus.setImageResource(R.drawable.net_status_high);
+        } else if (mobileSignal == 4) {
+            ivNetStatus.setImageResource(R.drawable.net_status_strong);
 
+        }
+    }
 }

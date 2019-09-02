@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,6 +24,7 @@ import com.ydtl.uboxpay.component.Constant;
 import com.ydtl.uboxpay.component.callback;
 import com.ydtl.uboxpay.tool.AndroidUtil;
 import com.ydtl.uboxpay.tool.DataResolveUtils;
+import com.ydtl.uboxpay.tool.NetworkSignal;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -67,6 +69,10 @@ public class UBoxSetUpVmIdActivity extends BaseActivity {
     EditText etInput;
     @BindView(R.id.tvTips)
     TextView tvTips;
+    @BindView(R.id.ivNetStatus)
+    ImageView ivNetStatus;
+    @BindView(R.id.tvVmId)
+    TextView tvVmId;
 
     private StringBuilder vimIdInput;
     private String TAG = this.getClass().getSimpleName();
@@ -78,6 +84,8 @@ public class UBoxSetUpVmIdActivity extends BaseActivity {
         ButterKnife.bind(this);
         vimIdInput = new StringBuilder();
         etInput.setInputType(InputType.TYPE_NULL);
+        tvVmId.setVisibility(View.GONE);
+        ivNetStatus.setVisibility(View.VISIBLE);
 
     }
 
@@ -190,6 +198,25 @@ public class UBoxSetUpVmIdActivity extends BaseActivity {
                 etInput.setTextColor(Color.parseColor("#CCCCCC"));
             }
             return false;
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        int mobileSignal = NetworkSignal.getInstance().getMobileSignal();
+        ivNetStatus.setVisibility(View.VISIBLE);
+        if (mobileSignal == 0) {
+            ivNetStatus.setImageResource(R.drawable.net_status_fail);
+        } else if (mobileSignal == 1) {
+            ivNetStatus.setImageResource(R.drawable.net_status_weak);
+        } else if (mobileSignal == 2) {
+            ivNetStatus.setImageResource(R.drawable.net_status_normal);
+        } else if (mobileSignal == 3) {
+            ivNetStatus.setImageResource(R.drawable.net_status_high);
+        } else if (mobileSignal == 4) {
+            ivNetStatus.setImageResource(R.drawable.net_status_strong);
+
         }
     }
 

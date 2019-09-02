@@ -1,25 +1,20 @@
 package com.ydtl.uboxpay.activity.ubox;
 
-import android.graphics.drawable.Drawable;
-import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.Priority;
-import com.bumptech.glide.gifdecoder.GifDecoder;
-import com.bumptech.glide.load.DataSource;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.bumptech.glide.load.engine.GlideException;
-import com.bumptech.glide.request.RequestListener;
-import com.bumptech.glide.request.RequestOptions;
-import com.bumptech.glide.request.target.Target;
 import com.hash.lib.ui.glide.GlideUtil;
 import com.hash.lib.ui.utils.PixelUtil;
 import com.ydtl.uboxpay.R;
 import com.ydtl.uboxpay.activity.base.BaseActivity;
+import com.ydtl.uboxpay.component.Constant;
+import com.ydtl.uboxpay.tool.AndroidUtil;
+import com.ydtl.uboxpay.tool.NetworkSignal;
+
+import java.util.Random;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -58,6 +53,14 @@ public class ProductShipmentStatusAct extends BaseActivity {
     @BindView(R.id.ivProductPic)
     ImageView ivProductPic;
 
+    @BindView(R.id.shipmentTips)
+    TextView shipmentTips;
+
+    @BindView(R.id.tvVmId)
+    TextView tvVmId;
+    @BindView(R.id.ivNetStatus)
+    ImageView ivNetStatus;
+
     private boolean isShipmentFail = false; //是否出货失败
 
     @Override
@@ -71,6 +74,8 @@ public class ProductShipmentStatusAct extends BaseActivity {
         shipmentProcessShowUi();
         //2.异步回调出货接口,完成出货的状态,展示出货成功或者失败的ui
 //        shipmentFinalShowUi();
+        tvVmId.setText("机器号: " + AndroidUtil.getConfigValue(this, Constant.GET_VM_ID, ""));
+
     }
 
     private void shipmentFinalShowUi() {
@@ -97,5 +102,25 @@ public class ProductShipmentStatusAct extends BaseActivity {
             shipmentFinalStatus.setVisibility(View.GONE);
 
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        int mobileSignal = NetworkSignal.getInstance().getMobileSignal();
+        ivNetStatus.setVisibility(View.VISIBLE);
+        if (mobileSignal == 0) {
+            ivNetStatus.setImageResource(R.drawable.net_status_fail);
+        } else if (mobileSignal == 1) {
+            ivNetStatus.setImageResource(R.drawable.net_status_weak);
+        } else if (mobileSignal == 2) {
+            ivNetStatus.setImageResource(R.drawable.net_status_normal);
+        } else if (mobileSignal == 3) {
+            ivNetStatus.setImageResource(R.drawable.net_status_high);
+        } else if (mobileSignal == 4) {
+            ivNetStatus.setImageResource(R.drawable.net_status_strong);
+
+        }
+
     }
 }

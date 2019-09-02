@@ -18,6 +18,7 @@ import com.lzy.okgo.interceptor.HttpLoggingInterceptor;
 import com.lzy.okgo.model.HttpParams;
 import com.ydtl.uboxpay.bean.ShopData;
 import com.ydtl.uboxpay.tool.LogUtils;
+import com.ydtl.uboxpay.tool.NetworkSignal;
 
 import java.io.InputStreamReader;
 import java.io.LineNumberReader;
@@ -46,6 +47,7 @@ public class MainApplication extends Application {
         initOKGo();
         PathUtil.init(this);
         NetUtil.init(this);
+        NetworkSignal.getInstance().init(this);
     }
 
     @SuppressLint("MissingPermission")

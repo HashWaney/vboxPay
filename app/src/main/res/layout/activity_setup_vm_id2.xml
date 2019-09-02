@@ -5,6 +5,8 @@
     android:background="@drawable/product_list_bg"
     android:orientation="vertical">
 
+    <include layout="@layout/layout_status_bar" />
+
     <LinearLayout
         android:layout_width="272dp"
         android:layout_height="wrap_content"
@@ -48,13 +50,13 @@
 
 
             <TextView
+                android:id="@+id/tvTips"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/etInputId"
                 android:text="很抱歉你输入的机器号不存在"
                 android:textColor="#F44839"
                 android:textSize="15sp"
-                android:id="@+id/tvTips"
                 android:visibility="gone" />
 
 

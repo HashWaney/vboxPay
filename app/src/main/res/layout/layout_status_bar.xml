@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="21dp"
+    android:layout_gravity="right"
+    android:background="@drawable/status_bar_bg"
+    android:gravity="right">
+
+    <TextView
+        android:id="@+id/tvVmId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="3dp"
+        android:textSize="15sp" />
+
+    <ImageView
+        android:id="@+id/ivNetStatus"
+        android:layout_width="20.5dp"
+        android:layout_height="20.5dp"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="19dp"
+        android:layout_toRightOf="@id/tvVmId"
+        android:src="@drawable/net_status_fail"
+        android:visibility="gone" />
+
+
+</RelativeLayout>
