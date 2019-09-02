@@ -67,6 +67,7 @@ public class ProductPayActivity extends BaseActivity {
             tvProductPrice.setText("￥" + price);
             GlideUtil.sharedInstance().display(this, ivProductPic, productInfo.getProductPic(), R.drawable.shop_default_bg);
         }
+        backToPrePage.setVisibility(View.VISIBLE);
         tvVmId.setText("机器号: " + AndroidUtil.getConfigValue(this, Constant.GET_VM_ID, ""));
 
     }

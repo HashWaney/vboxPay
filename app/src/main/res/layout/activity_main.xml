@@ -7,26 +7,30 @@
 
     <include layout="@layout/layout_status_bar" />
 
-    <FrameLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
+        <!-- android:layout_marginLeft="26.5dp"
+                    android:layout_marginRight="26.5dp"-->
         <android.support.v7.widget.RecyclerView
             android:id="@+id/baseRecycleView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginLeft="26.5dp"
-            android:layout_marginRight="26.5dp"
-            android:layout_marginTop="63dp" />
+            android:paddingLeft="26.5dp"
+            android:paddingRight="26.5dp"
+            android:paddingTop="63dp" />
+
 
         <ProgressBar
             android:id="@+id/loadView"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
             android:layout_gravity="center" />
 
 
-    </FrameLayout>
+    </RelativeLayout>
 
 
 </LinearLayout>
