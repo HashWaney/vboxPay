@@ -123,7 +123,7 @@ public class UBoxSetUpVmIdActivity extends BaseActivity {
             productBean.setApp_id(Constant.APP_ID);
             String sign = DataResolveUtils.formatSignParam(productBean);
             String param = DataResolveUtils.buildRequestParam(productBean) + sign;
-            OkGo.<String>post(Constant.productList_url)
+            OkGo.<String>post(Constant.PRODUCT_LIST_URL)
                     .upString(param, MediaType.parse("application/x-www-form-urlencoded;charset=UTF-8"))
                     .tag(this)
                     .execute(new callback() {

@@ -5,10 +5,15 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
+import android.util.Base64;
 import android.widget.Toast;
 
 import com.ydtl.uboxpay.component.com.kaopiz.kprogresshud.KProgressHUD;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.text.DateFormat;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
@@ -438,5 +443,57 @@ public class AndroidUtil {
                 break;
         }
         return mString;
+    }
+
+    public static void putObject(Context context, String key, Object value) {
+        SharedPreferences preferences = context.getSharedPreferences(defaultfilename,Context.MODE_PRIVATE);
+        // 创建字节输出流
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        ObjectOutputStream oos = null;
+        try {
+            // 创建对象输出流，并封装字节流
+            oos = new ObjectOutputStream(baos);
+            // 将对象写入字节流
+            oos.writeObject(value);
+            oos.flush();
+            // 将字节流编码成base64的字符串
+            String productBase64 = android.util.Base64.encodeToString(baos.toByteArray(), android.util.Base64.DEFAULT);
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putString(key, productBase64);
+            editor.apply();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            IOUtils.closeQuietly(oos);
+            IOUtils.closeQuietly(baos);
+        }
+    }
+
+    public static Object getObject(Context context, String key) {
+        SharedPreferences preferences = context.getSharedPreferences(defaultfilename,Context.MODE_PRIVATE);
+        String productBase64 = preferences.getString(key,"");
+        if (!AndroidUtil.isEmpty(productBase64)) {
+            // 读取字节
+            byte[] base64 = Base64.decode(productBase64.getBytes(), Base64.DEFAULT);
+            // 封装到字节流
+            ByteArrayInputStream bais = new ByteArrayInputStream(base64);
+            ObjectInputStream bis = null;
+            try {
+                // 再次封装
+                bis = new ObjectInputStream(bais);
+                try {
+                    // 读取对象
+                    return bis.readObject();
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                IOUtils.closeQuietly(bis);
+                IOUtils.closeQuietly(bais);
+            }
+        }
+        return null;
     }
 }

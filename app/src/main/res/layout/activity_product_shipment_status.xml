@@ -8,6 +8,21 @@
 
     <include layout="@layout/layout_status_bar" />
 
+    <RelativeLayout
+        android:id="@+id/backToPrePage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="33dp"
+        android:padding="10dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="18dp"
+            android:src="@drawable/iv_back" />
+    </RelativeLayout>
+
 
     <LinearLayout
         android:id="@+id/shipmentFinalStatus"
@@ -101,8 +116,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="17.5dp"
-            android:textColor="#3E3A39"
             android:text="出货中"
+            android:textColor="#3E3A39"
             android:textSize="15sp" />
     </LinearLayout>
 </RelativeLayout>

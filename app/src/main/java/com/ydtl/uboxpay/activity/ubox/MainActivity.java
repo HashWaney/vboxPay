@@ -33,6 +33,7 @@ import com.ydtl.uboxpay.tool.NetworkSignal;
 import java.util.ArrayList;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import okhttp3.MediaType;
 
 
@@ -50,15 +51,16 @@ public class MainActivity extends BaseActivity implements BaseQuickAdapter.OnIte
     @BindView(R.id.ivNetStatus)
     ImageView ivNetStatus;
 
+    private int orderId = 1213123;//初始的订单id;
+
+
     @Override
     public void setCustomLayout() {
         super.setCustomLayout();
         setContentView(R.layout.activity_main);
-        mRecyclerView = findViewById(R.id.baseRecycleView);
-        loadingProgressBar = findViewById(R.id.loadView);
+        ButterKnife.bind(this);
         mRecyclerView.setVisibility(View.GONE);
         loadingProgressBar.setVisibility(View.VISIBLE);
-        ivNetStatus = findViewById(R.id.ivNetStatus);
         tvVmId = findViewById(R.id.tvVmId);
         tvVmId.setText("机器号: " + AndroidUtil.getConfigValue(this, Constant.GET_VM_ID, ""));
 
@@ -104,7 +106,7 @@ public class MainActivity extends BaseActivity implements BaseQuickAdapter.OnIte
     private void initNetRequest() {
         String sign = DataResolveUtils.formatSignParam(productBean);
         String param = DataResolveUtils.buildRequestParam(productBean) + sign;
-        OkGo.<String>post(Constant.productList_url)
+        OkGo.<String>post(Constant.PRODUCT_LIST_URL)
                 .upString(param, MediaType.parse("application/x-www-form-urlencoded;charset=UTF-8"))
                 .cacheMode(CacheMode.FIRST_CACHE_THEN_REQUEST)
                 .tag(this)
@@ -194,7 +196,6 @@ public class MainActivity extends BaseActivity implements BaseQuickAdapter.OnIte
             bundle.putSerializable("productInfo", item);
             intent.putExtras(bundle);
             startActivity(intent);
-            finish();
         }
     }
 }

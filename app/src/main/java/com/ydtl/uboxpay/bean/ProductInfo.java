@@ -14,6 +14,7 @@ public class ProductInfo implements Serializable {
     private String productPrice;
     private String productPic;
     private String productNum;
+    private String orderId;
 
     @Override
     public String toString() {
@@ -23,6 +24,7 @@ public class ProductInfo implements Serializable {
                 ", productPrice='" + productPrice + '\'' +
                 ", productPic='" + productPic + '\'' +
                 ", productNum='" + productNum + '\'' +
+                ", orderId='" + orderId + '\'' +
                 '}';
     }
 
@@ -64,5 +66,13 @@ public class ProductInfo implements Serializable {
 
     public void setProductNum(String productNum) {
         this.productNum = productNum;
+    }
+
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
+    }
+
+    public String getOrderId() {
+        return orderId;
     }
 }
